@@ -1,0 +1,158 @@
+/* dans le code color: rgba(..,..,..,..) le dernier correspond à la transparance, nous pouvons aussi uliser des noms de couleur ou des #*/
+
+*{ /* pour eviter d'avoir des contour blanc, mettre en style par défaut */
+	margin: 0%;
+	padding: 0%;
+}
+html {
+	font-family: 'arial';
+	font-size: 16px;
+}
+
+@font-face{ /* règle générale */
+	font-family: 'Halaney-Demo';
+	src: url('./Halaney-Demo.otf'); /* source du fichier, attention, 
+	cette police peut ne pas être bonne pour tous les navigateur, s'aider de : https://www.fontsquirrel.com/tools/webfont-generator pour compatibilité*/
+	font-weight: normal;/* rendre le texte plus gras, on peut modifier avec des valeur ex : 900 pour etre plus fgras */
+	font-style: normal; /* peut rendre la typo en italique */
+}
+
+nav{
+	background-color: rgba(0,0,0,0.2);
+	text-align: center;
+	padding: 15px; /* padding : espace à l'intérieur de la div (entre le contenu et la div) 
+	margin: : espace entre les div */
+}
+
+#hero{
+	background: url('./image/Fond.jpg');
+	background-repeat: no-repeat; /* ne pas rep la photo si trop petite */
+	background-size: cover; /* couvre toute la place */
+	height: 100%;
+	padding: 0.1px;
+}
+
+#bandeau{
+	margin-top: 5%;
+	margin-bottom:5%; /* pb avec ce margin bottom, obligé d'appliquer un padding à section pour qu'il fonctionne, wtf ??!*/
+	background-color: rgba(255,255,255,0.4);
+	
+}
+
+#contenu{
+	text-align: center;
+	padding: 7%;
+}
+
+#contenu a{ /* cible l'élément "a" dans la div contenu */
+	color: red;
+	border: 1px solid red;
+	border-radius: 15px; /* contour arrondi */
+	text-decoration: none;
+	transition: 1s; /* transition de couleur au survol */
+	
+}
+
+#contenu a:hover {
+	color: white;
+	background-color: rgba(178,32,10,0.8);
+}
+
+#contenu img{
+	border-radius: 62.5px;
+}
+#contenu img:hover {
+	transform:rotate(360deg) scale(1.2);
+	transition: 0.4s;
+}
+	
+h1{/* propriété */
+	color: black;/* color est donc pour la couleur, ne pas oublier":", possibilité de faire color: rgb ou rgba */
+	font-size: 28px; /* font size permet de définir la taille de la police "front" */
+	font-family: 'Halaney-Demo'; /* nous pouvons rajouter d'autres police derrière celle-ci : 'Arial', 'times', 'etc' ; */
+	padding: 0.5%;
+}
+
+h2{
+	color: black;
+	font-size: 24px; 
+}
+
+h3{ 
+	color: black;
+	font-size: 20px;
+}
+
+p{
+	color: black;
+	font-size: 18px;
+}
+
+a{ 
+	color: white;
+	padding: 20px;
+	text-decoration: none;
+	transition: 1s;
+}
+
+a:hover{ /* modifier les liens au survol, "pseudo class" pour "a", si nous voulon modifier "a" taille couleur etc, refaire une demande a{]} */
+	color: red;
+}
+#formation{
+	display:flex; /* on ajoute de la flexibilité, pour diviser le contenu au même niveau */
+}
+#formation_image{
+	flex:1; /* 1 pour 1/3 */
+	padding: 20px;
+	text-align: center;
+}
+#formation_image img{
+	flex:1; /* attribu de l'image */
+	max-width: 100%;
+}
+#formation_intro{
+	flex:2; /* 2 pour 2/3 */
+	padding: 20px;
+}
+	
+
+#experience {
+	background-color: #666;
+	color: white;
+	display: flex;
+	padding: 20px;
+	text-align: center;
+}
+#experience p{
+	color: white;
+}
+
+.exp_pro p{ /* class, différend de div, il peut en avoir plusieurs */
+	text-align: justify;
+	padding: 20px;
+}
+.exp_pro1 p{
+	text-align: justify;
+	padding: 20px;
+}
+
+@media screen and (min-width: 600px){
+	.exp_pro1 p{
+	border-right-style: solid; /* bordure */
+	border-left-style: solid;
+	}
+}
+@media screen and (max-width: 600px){ /* afin d'ajuster l'affichage sur les ecrans plus petit que 1024px (c'est l'ipad pro), attention, double acolades */
+	#formation{
+		flex-direction: column; /* on met le flex en colonne */
+	}
+	#experience {
+		flex-direction: column;
+	}
+	.exp_pro1 p{
+	border-right-style: 0; /* bordure */
+	border-left-style: 0;
+	border-bottom-style: solid;
+	border-top-style: solid;
+	}
+
